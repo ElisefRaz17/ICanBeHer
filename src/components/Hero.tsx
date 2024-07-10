@@ -15,15 +15,15 @@ function Hero() {
   return (
     <>
       <div className={styles.content}>
-        <img src={HeroImage} alt="hero image" style={{marginLeft:'auto'}} />
+        <img src={HeroImage} alt="hero image"className={styles.floating}/>
         {/* <Box sx={{ minWidth: 120 }}> */}
         <div className="content-contaienr">
-          <div style={{ textAlign: "center", color: "black", fontFamily:'Roboto' }}>
+          <div style={{ textAlign: "center", color: "black", fontFamily:'Barlow' }}>
             <p>What role in tech do you want to pursue or currently have?</p>
           </div>
           <div style={{ textAlign: "center" }}>
             <FormControl sx={{ m: 1, minWidth: 200 }}>
-              <InputLabel id="demo-simple-select-label">Role</InputLabel>
+              <InputLabel id="demo-simple-select-label" sx={{fontFamily:'Barlow'}}>Select a role</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
