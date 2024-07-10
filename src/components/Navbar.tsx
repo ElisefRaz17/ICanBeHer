@@ -13,7 +13,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -135,9 +135,10 @@ function Navbar() {
         </Box> */}
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Open settings" sx={{gap:'1rem'}}>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp"sx={{backgroundColor:'lightpink'}} src="/static/images/avatar/2.jpg" />
+                <LogoutIcon sx={{color:'lightpink'}}/>
               </IconButton>
             </Tooltip>
             <Menu
