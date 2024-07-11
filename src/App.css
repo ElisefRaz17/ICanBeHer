@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-family: 'Roboto';
+  overflow: hidden;
   /* background: linear-gradient(#FFFFFF 0%, #F6BEFF 71%, #FB5CC5 100%) */
 }
 

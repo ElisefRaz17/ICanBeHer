@@ -6,11 +6,11 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
+    <div className={StyleSheet.background}>
       <Navbar />
       <Hero/>
       <Footer/>
-    </>
+    </div>
   );
 }
 

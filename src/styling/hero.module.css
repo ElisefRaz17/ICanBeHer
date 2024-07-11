@@ -10,8 +10,6 @@ p{
     font-family:'Barlow';
 }
 body{
-    width: 100vw;
-    height: 100vh;
     background: url('../assets/HeroBackground.png');
     background-size: cover;
 }
@@ -35,6 +33,7 @@ body{
     justify-content: center;
     align-items: center;
     padding-top: 50px;
+    flex-wrap: wrap;
 }
 .content-container{
         /* align-self: flex-start; */

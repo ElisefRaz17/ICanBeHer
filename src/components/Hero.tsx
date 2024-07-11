@@ -30,10 +30,17 @@ function Hero() {
                 value={age}
                 label="Algorithm"
                 onChange={handleChange}
+                MenuProps={{
+                  disableScrollLock: true,
+                }}
               >
-                <MenuItem value={1}>Developer</MenuItem>
-                <MenuItem value={2}>Entrepeneur</MenuItem>
-                <MenuItem value={3}>Engineer</MenuItem>
+                <MenuItem value={1}>Development</MenuItem>
+                <MenuItem value={3}>Engineering</MenuItem>
+                <MenuItem value={2}>Entrepeneurship</MenuItem>
+                <MenuItem value={3}>SoftwareEngineering</MenuItem>
+                <MenuItem value={3}>Design</MenuItem>
+                <MenuItem value={3}>DataScience</MenuItem>
+                <MenuItem value={3}>Cybersecurity</MenuItem>
               </Select>
             </FormControl>
           </div>

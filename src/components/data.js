@@ -1,5 +1,5 @@
 var womenInTechnology = {
-  developers: [
+  Developement: [
     {
       name: "",
       details: "",
@@ -7,7 +7,7 @@ var womenInTechnology = {
       website: "",
     },
   ],
-  engineers: [
+  Engineering: [
     {
       name: "Barbara Liskov",
       details:
@@ -159,7 +159,7 @@ var womenInTechnology = {
       tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     },
   ],
-  entrepeneur: [
+  Entrepeneurship: [
     {
       id: "565177",
       name: "Judith Estrin",
@@ -288,7 +288,7 @@ var womenInTechnology = {
       tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     },
   ],
-  softwareEngineer: [
+  SoftwareEngineering: [
     {
       id: "565165",
       name: "Mary Shaw",
@@ -312,7 +312,7 @@ var womenInTechnology = {
       tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     },
   ],
-  designer: [
+  Design: [
     {
       id: "565182",
       name: "Susan Kare",
@@ -422,7 +422,7 @@ var womenInTechnology = {
       tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     },
   ],
-  dataScientists: [
+  DataScience: [
     {
       name: "Ada Lovelace",
       details:
@@ -466,7 +466,7 @@ var womenInTechnology = {
         "https://www.smithsonianmag.com/smithsonian-institution/margaret-hamilton-led-nasa-software-team-landed-astronauts-moon-180971575/",
     },
   ],
-  cybersecurity: [
+  Cybersecurity: [
     {
       id: "565208",
       name: "Window Snyder",
