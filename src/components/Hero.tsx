@@ -6,13 +6,17 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Button } from "@mui/material";
+import { Button} from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 function Hero() {
   const [aspiration, setAspiration] = React.useState("");
 
+
   const handleChange = (event: SelectChangeEvent) => {
-    setAspiration(event.target.value as string);
+    event.preventDefault();
+    setAspiration(event.target.value);
   };
+  console.log(aspiration)
   return (
     <>
       <div className={styles.content}>
@@ -35,17 +39,18 @@ function Hero() {
                   disableScrollLock: true,
                 }}
               >
-                <MenuItem value={1}>Development</MenuItem>
-                <MenuItem value={3}>Engineering</MenuItem>
-                <MenuItem value={2}>Entrepeneurship</MenuItem>
-                <MenuItem value={3}>SoftwareEngineering</MenuItem>
-                <MenuItem value={3}>Design</MenuItem>
-                <MenuItem value={3}>DataScience</MenuItem>
-                <MenuItem value={3}>Cybersecurity</MenuItem>
+                <MenuItem value={"Development"}>Development</MenuItem>
+                <MenuItem value={"Engineering"}>Engineering</MenuItem>
+                <MenuItem value={"Entrepeneurship"}>Entrepeneurship</MenuItem>
+                <MenuItem value={"SoftwareEngineering"}>SoftwareEngineering</MenuItem>
+                <MenuItem value={"Design"}>Design</MenuItem>
+                <MenuItem value={"DataScience"}>DataScience</MenuItem>
+                <MenuItem value={"Cybersecurity"}>Cybersecurity</MenuItem>
               </Select>
-              <Button sx={{backgroundColor:"#9CB2FF",color:"black",marginTop: "10px",":hover":{bgcolor:"#444cf7", color:"white"}}}>Inspire Me!</Button>
+              <Button sx={{backgroundColor:"#9CB2FF",color:"black",marginTop: "10px",":hover":{bgcolor:"#444cf7", color:"white"}}}><Link to='/aspiration' state={{aspiration}}>Inspire Me!</Link></Button>
             </FormControl>
           </div>
+          
         </div>
       </div>
       <div className={styles.background}></div>
