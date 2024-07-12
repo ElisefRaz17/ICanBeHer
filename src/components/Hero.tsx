@@ -6,6 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Button } from "@mui/material";
 function Hero() {
   const [aspiration, setAspiration] = React.useState("");
 
@@ -42,6 +43,7 @@ function Hero() {
                 <MenuItem value={3}>DataScience</MenuItem>
                 <MenuItem value={3}>Cybersecurity</MenuItem>
               </Select>
+              <Button sx={{backgroundColor:"#9CB2FF",color:"black",marginTop: "10px",":hover":{bgcolor:"#444cf7", color:"white"}}}>Inspire Me!</Button>
             </FormControl>
           </div>
         </div>
