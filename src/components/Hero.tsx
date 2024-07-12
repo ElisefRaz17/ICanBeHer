@@ -7,10 +7,10 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 function Hero() {
-  const [age, setAge] = React.useState("");
+  const [aspiration, setAspiration] = React.useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setAspiration(event.target.value as string);
   };
   return (
     <>
@@ -27,8 +27,8 @@ function Hero() {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={age}
-                label="Algorithm"
+                value={aspiration}
+                label="Aspiration"
                 onChange={handleChange}
                 MenuProps={{
                   disableScrollLock: true,

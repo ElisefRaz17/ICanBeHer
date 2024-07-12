@@ -1,16 +1,24 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from "./components/pages/Home";
+import AspirationOutput from "./components/pages/AspirationOutput";
 
 function App() {
   return (
-    <div className={StyleSheet.background}>
+    <Router>
       <Navbar />
-      <Hero/>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route path="/aspiration" element={<AspirationOutput/>}/>
+      </Routes>
       <Footer/>
-    </div>
+    </Router>
   );
 }
 
