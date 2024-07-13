@@ -1,0 +1,28 @@
+.container{
+    height:550px;
+    padding-top: 8px;
+    flex-direction: row;
+    justify-content: flex-end;
+    display: flex;
+    padding-right: 200px;
+}
+
+.card{
+    width:342px;
+    height:400px;
+    align-self: center;
+    
+}
+.card-content{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    a:hover{
+        color:pink;
+    }
+}
+.title{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}

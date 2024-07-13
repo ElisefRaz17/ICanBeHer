@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import womenInTechnology from "../data";
+import styles from "../../styling/aspirationoutput.module.css";
 function AspirationOutput() {
   const location = useLocation();
   const category = location.state.aspiration;
@@ -42,21 +43,21 @@ function AspirationOutput() {
   // console.log(category);
 
   return (
-    <div>
-      {/* {selectedItem.category === category && ( */}
-
+    <div className={styles.container}>
       {category === "Engineering" && (
-        <Card sx={{ maxWidth: 345 }}>
-          <CardContent>
+        <Card className={styles.card}>
+          <CardContent className={styles["card-content"]}>
             <Typography variant="body2" color="text.seconday">
               <p id={engineeringItems[randomNum].id}>
-                {engineeringItems[randomNum].name}
+                About {engineeringItems[randomNum].name}
               </p>
               <img
                 src={engineeringItems[randomNum].image_path}
                 key={engineeringItems[randomNum].name}
                 alt="engineering image"
               />
+              <p className={styles.title}>{engineeringItems[randomNum].category}</p>
+              <p>Learn more about {engineeringItems[randomNum].name} <a href={engineeringItems[randomNum].website}>here</a></p>
             </Typography>
           </CardContent>
         </Card>
