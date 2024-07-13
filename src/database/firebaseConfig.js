@@ -1,10 +1,17 @@
-let firebaseConfig = {
-    apiKey: "AIzaSyDtsgHspBq5cP_PY93E-siKavg8PKE9IeA",
-    authDomain: "icanbeher-52758.firebaseapp.com",
-    projectId: "icanbeher-52758",
-    storageBucket: "icanbeher-52758.appspot.com",
-    messagingSenderId: "219706161343",
-    appId: "1:219706161343:web:6f266353dc1cfb9bc12e0a"
-  };
+import { initializeApp } from "firebase/app";
+import {getAuth} from "firebase/auth";
+import "firebase/auth";
+import {getFirestore} from "@firebase/firestore";
 
+let firebaseConfig = {
+    apiKey: process.env.REACT_APP_FIREBASE_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID
+  };
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 export default firebaseConfig;
