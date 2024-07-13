@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../styling/hero.module.css";
 import HeroImage from "../assets/HeroImage.png";
 import Box from "@mui/material/Box";
@@ -8,15 +8,16 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Button} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import womenInTechnology from "./data";
 function Hero() {
   const [aspiration, setAspiration] = React.useState("");
-
-
+  const [name, setName] = React.useState({});
   const handleChange = (event: SelectChangeEvent) => {
     event.preventDefault();
     setAspiration(event.target.value);
   };
-  console.log(aspiration)
+
+
   return (
     <>
       <div className={styles.content}>
@@ -42,12 +43,12 @@ function Hero() {
                 <MenuItem value={"Development"}>Development</MenuItem>
                 <MenuItem value={"Engineering"}>Engineering</MenuItem>
                 <MenuItem value={"Entrepeneurship"}>Entrepeneurship</MenuItem>
-                <MenuItem value={"SoftwareEngineering"}>SoftwareEngineering</MenuItem>
+                <MenuItem value={"Software Engineering"}>Software Engineering</MenuItem>
                 <MenuItem value={"Design"}>Design</MenuItem>
-                <MenuItem value={"DataScience"}>DataScience</MenuItem>
+                <MenuItem value={"Data Science"}>Data Science</MenuItem>
                 <MenuItem value={"Cybersecurity"}>Cybersecurity</MenuItem>
               </Select>
-              <Button sx={{backgroundColor:"#9CB2FF",color:"black",marginTop: "10px",":hover":{bgcolor:"#444cf7", color:"white"}}}><Link to='/aspiration' state={{aspiration}}>Inspire Me!</Link></Button>
+              <Button sx={{backgroundColor:"#9CB2FF",color:"black",marginTop: "10px",":hover":{bgcolor:"#444cf7", color:"white"}}} ><Link to='/aspiration' state={{aspiration}}>Inspire Me!</Link></Button>
             </FormControl>
           </div>
           
