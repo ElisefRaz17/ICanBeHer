@@ -1,12 +1,23 @@
-import React from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import React, { useRef } from "react";
+import { Card, CardContent, IconButton, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import womenInTechnology from "../data";
 import styles from "../../styling/aspirationoutput.module.css";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import {
+  ShowMore,
+  type ShowMoreRef,
+  type ShowMoreToggleLinesFn,
+} from "@re-dev/react-truncate";
+import { KeyboardArrowUp } from "@mui/icons-material";
 function AspirationOutput() {
   const location = useLocation();
   const category = location.state.aspiration;
   const [randomNum, setRandomNum] = React.useState(0);
+  const ref = useRef<ShowMoreRef>(null);
+  const toggleLines: ShowMoreToggleLinesFn = (e) => {
+    ref.current?.toggleLines(e);
+  };
   const selectedItem = womenInTechnology.find(
     (item) => item.category === category
   );
@@ -45,7 +56,28 @@ function AspirationOutput() {
   return (
     <div className={styles.container}>
       <div className={styles.details}>
-      <h2 style={{paddingLeft:'20px'}}>Your Area of Interest: {category}</h2>
+        <h2 className={styles["area-interest"]}>
+          Your Area of Interest: <b>{category}</b>
+        </h2>
+        <h3>Did you know:</h3>
+        <div>
+          <ShowMore
+            ref={ref}
+            lines={3}
+            more={
+              <IconButton sx={{backgroundColor:'white'}} disableRipple onClick={toggleLines}>
+                <KeyboardArrowDownIcon />
+              </IconButton>
+            }
+            less={
+              <IconButton sx={{backgroundColor:'white'}} disableRipple onClick={toggleLines}>
+                <KeyboardArrowUp />
+              </IconButton>
+            }
+          >
+            <p>{engineeringItems[randomNum].details}</p>
+          </ShowMore>
+        </div>
       </div>
       {category === "Engineering" && (
         <Card className={styles.card}>
@@ -59,81 +91,136 @@ function AspirationOutput() {
                 key={engineeringItems[randomNum].name}
                 alt="engineering image"
               />
-              <p className={styles.title}>{engineeringItems[randomNum].category}</p>
-              <p>Learn more about {engineeringItems[randomNum].name} <a href={engineeringItems[randomNum].website}>here</a></p>
+              <p className={styles.title}>
+                {engineeringItems[randomNum].category}
+              </p>
+              <p>
+                Learn more about {engineeringItems[randomNum].name}{" "}
+                <a href={engineeringItems[randomNum].website}>here</a>
+              </p>
             </Typography>
           </CardContent>
         </Card>
       )}
 
       {category === "Data Science" && (
-        <Card sx={{ maxWidth: 345 }}>
-          <CardContent>
-            <Typography variant="body2" color="text.seconday">
-              <p> {dataScienceItems[randomNum].name}</p>
-              <img
-                src={dataScienceItems[randomNum].image_path}
-                alt="data science picture"
-              />
-            </Typography>
-          </CardContent>
-        </Card>
+        <Card className={styles.card}>
+        <CardContent className={styles["card-content"]}>
+          <Typography variant="body2" color="text.seconday">
+            <p id={dataScienceItems[randomNum].id}>
+              About {dataScienceItems[randomNum].name}
+            </p>
+            <img
+              src={dataScienceItems[randomNum].image_path}
+              key={dataScienceItems[randomNum].name}
+              alt="datascience image"
+            />
+            <p className={styles.title}>
+              {dataScienceItems[randomNum].category}
+            </p>
+            <p>
+              Learn more about {dataScienceItems[randomNum].name}{" "}
+              <a href={dataScienceItems[randomNum].website}>here</a>
+            </p>
+          </Typography>
+        </CardContent>
+      </Card>
       )}
 
       {category === "Software Engineering" && (
-        <Card sx={{ maxWidth: 345 }}>
-          <CardContent>
-            <Typography variant="body2" color="text.seconday">
-              <p> {softwareEngineeringItems[randomNum].name}</p>
-              <img
-                src={softwareEngineeringItems[randomNum].image_path}
-                alt="software engineering picture"
-              />
-            </Typography>
-          </CardContent>
-        </Card>
+        <Card className={styles.card}>
+        <CardContent className={styles["card-content"]}>
+          <Typography variant="body2" color="text.seconday">
+            <p id={softwareEngineeringItems[randomNum].id}>
+              About {softwareEngineeringItems[randomNum].name}
+            </p>
+            <img
+              src={softwareEngineeringItems[randomNum].image_path}
+              key={softwareEngineeringItems[randomNum].name}
+              alt="software engineering image"
+            />
+            <p className={styles.title}>
+              {softwareEngineeringItems[randomNum].category}
+            </p>
+            <p>
+              Learn more about {softwareEngineeringItems[randomNum].name}{" "}
+              <a href={softwareEngineeringItems[randomNum].website}>here</a>
+            </p>
+          </Typography>
+        </CardContent>
+      </Card>
       )}
 
       {category === "Cybersecurity" && (
-        <Card sx={{ maxWidth: 345 }}>
-          <CardContent>
-            <Typography variant="body2" color="text.seconday">
-              <p> {cyberSecurityItems[randomNum].name}</p>
-              <img
-                src={cyberSecurityItems[randomNum].image_path}
-                alt="cybersecurity picture"
-              />
-            </Typography>
-          </CardContent>
-        </Card>
+        <Card className={styles.card}>
+        <CardContent className={styles["card-content"]}>
+          <Typography variant="body2" color="text.seconday">
+            <p id={cyberSecurityItems[randomNum].id}>
+              About {cyberSecurityItems[randomNum].name}
+            </p>
+            <img
+              src={cyberSecurityItems[randomNum].image_path}
+              key={cyberSecurityItems[randomNum].name}
+              alt="cybersecurity image"
+            />
+            <p className={styles.title}>
+              {cyberSecurityItems[randomNum].category}
+            </p>
+            <p>
+              Learn more about {cyberSecurityItems[randomNum].name}{" "}
+              <a href={cyberSecurityItems[randomNum].website}>here</a>
+            </p>
+          </Typography>
+        </CardContent>
+      </Card>
       )}
 
       {category === "Design" && (
-        <Card sx={{ maxWidth: 345 }}>
-          <CardContent>
-            <Typography variant="body2" color="text.seconday">
-              <p> {designItems[randomNum].name}</p>
-              <img
-                src={designItems[randomNum].image_path}
-                alt="design picture"
-              />
-            </Typography>
-          </CardContent>
-        </Card>
+        <Card className={styles.card}>
+        <CardContent className={styles["card-content"]}>
+          <Typography variant="body2" color="text.seconday">
+            <p id={designItems[randomNum].id}>
+              About {designItems[randomNum].name}
+            </p>
+            <img
+              src={designItems[randomNum].image_path}
+              key={designItems[randomNum].name}
+              alt="design image"
+            />
+            <p className={styles.title}>
+              {designItems[randomNum].category}
+            </p>
+            <p>
+              Learn more about {designItems[randomNum].name}{" "}
+              <a href={designItems[randomNum].website}>here</a>
+            </p>
+          </Typography>
+        </CardContent>
+      </Card>
       )}
 
       {category === "Entrepeneurship" && (
-        <Card sx={{ maxWidth: 345 }}>
-          <CardContent>
-            <Typography variant="body2" color="text.seconday">
-              <p> {entrepeneurshipItems[randomNum].name}</p>
-              <img
-                src={entrepeneurshipItems[randomNum].image_path}
-                alt="entrepeneur picture"
-              />
-            </Typography>
-          </CardContent>
-        </Card>
+       <Card className={styles.card}>
+       <CardContent className={styles["card-content"]}>
+         <Typography variant="body2" color="text.seconday">
+           <p id={entrepeneurshipItems[randomNum].id}>
+             About {entrepeneurshipItems[randomNum].name}
+           </p>
+           <img
+             src={entrepeneurshipItems[randomNum].image_path}
+             key={entrepeneurshipItems[randomNum].name}
+             alt="entrepeneurship image"
+           />
+           <p className={styles.title}>
+             {entrepeneurshipItems[randomNum].category}
+           </p>
+           <p>
+             Learn more about {entrepeneurshipItems[randomNum].name}{" "}
+             <a href={entrepeneurshipItems[randomNum].website}>here</a>
+           </p>
+         </Typography>
+       </CardContent>
+     </Card>
       )}
       {/* )} */}
     </div>
