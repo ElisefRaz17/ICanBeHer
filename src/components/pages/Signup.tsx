@@ -61,8 +61,8 @@ const Signup = () => {
           />
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
-            Sign Up
+          <button type="submit" className="btn btn-primary" style={{backgroundColor:'#9CB2FF'}}>
+            Create Account
           </button>
         </div>
         <p className="forgot-password text-right">
