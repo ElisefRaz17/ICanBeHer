@@ -14,6 +14,13 @@
 
 }
 
+.favorite-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 245px;
+}
+
 .card{
     width:342px;
     height:400px;

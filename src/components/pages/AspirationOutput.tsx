@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
-import { Card, CardContent, IconButton, Typography } from "@mui/material";
+import React, { useCallback, useRef } from "react";
+import { Card, CardContent, IconButton, SelectChangeEvent, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import womenInTechnology from "../data";
 import styles from "../../styling/aspirationoutput.module.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import {
   ShowMore,
   type ShowMoreRef,
@@ -14,6 +16,14 @@ function AspirationOutput() {
   const location = useLocation();
   const category = location.state.aspiration;
   const [randomNum, setRandomNum] = React.useState(0);
+  const [liked, setLiked] = React.useState(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    inputRef.current?.focus(); /** used to stop rerendering when Like button is clicked */
+    setLiked(true);
+  }
+
   const ref = useRef<ShowMoreRef>(null);
   const toggleLines: ShowMoreToggleLinesFn = (e) => {
     ref.current?.toggleLines(e);
@@ -55,172 +65,371 @@ function AspirationOutput() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.details}>
-        <h2 className={styles["area-interest"]}>
-          Your Area of Interest: <b>{category}</b>
-        </h2>
-        <h3>Did you know:</h3>
-        <div>
-          <ShowMore
-            ref={ref}
-            lines={3}
-            more={
-              <IconButton sx={{backgroundColor:'white'}} disableRipple onClick={toggleLines}>
-                <KeyboardArrowDownIcon />
-              </IconButton>
-            }
-            less={
-              <IconButton sx={{backgroundColor:'white'}} disableRipple onClick={toggleLines}>
-                <KeyboardArrowUp />
-              </IconButton>
-            }
-          >
-            <p>{engineeringItems[randomNum].details}</p>
-          </ShowMore>
-        </div>
-      </div>
       {category === "Engineering" && (
-        <Card className={styles.card}>
-          <CardContent className={styles["card-content"]}>
-            <Typography variant="body2" color="text.seconday">
-              <p id={engineeringItems[randomNum].id}>
-                About {engineeringItems[randomNum].name}
-              </p>
-              <img
-                src={engineeringItems[randomNum].image_path}
-                key={engineeringItems[randomNum].name}
-                alt="engineering image"
-              />
-              <p className={styles.title}>
-                {engineeringItems[randomNum].category}
-              </p>
-              <p>
-                Learn more about {engineeringItems[randomNum].name}{" "}
-                <a href={engineeringItems[randomNum].website}>here</a>
-              </p>
-            </Typography>
-          </CardContent>
-        </Card>
+        <>
+          <div className={styles.details}>
+            <h2 className={styles["area-interest"]}>
+              Your Area of Interest: <b>{category}</b>
+            </h2>
+            <h3>Did you know:</h3>
+            <div>
+              <ShowMore
+                ref={ref}
+                lines={3}
+                more={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowDownIcon />
+                  </IconButton>
+                }
+                less={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowUp />
+                  </IconButton>
+                }
+              >
+                <p>{engineeringItems[randomNum].details}</p>
+              </ShowMore>
+            </div>
+          </div>
+          <Card className={styles.card}>
+            <CardContent className={styles["card-content"]}>
+              <Typography variant="body2" color="text.seconday">
+                <p id={engineeringItems[randomNum].id}>
+                  About {engineeringItems[randomNum].name}
+                  <IconButton onClick={handleClick}  type="button">
+                    {liked ?
+                    <FavoriteIcon sx={{color:'red'}}/> : <FavoriteBorderOutlinedIcon/>}
+                  </IconButton>
+                </p>
+                <img
+                  src={engineeringItems[randomNum].image_path}
+                  key={engineeringItems[randomNum].name}
+                  alt="engineering image"
+                />
+                <p className={styles.title}>
+                  {engineeringItems[randomNum].category}
+                </p>
+                <p>
+                  Learn more about {engineeringItems[randomNum].name}{" "}
+                  <a href={engineeringItems[randomNum].website}>here</a>
+                </p>
+              </Typography>
+            </CardContent>
+          </Card>
+        </>
       )}
 
       {category === "Data Science" && (
-        <Card className={styles.card}>
-        <CardContent className={styles["card-content"]}>
-          <Typography variant="body2" color="text.seconday">
-            <p id={dataScienceItems[randomNum].id}>
-              About {dataScienceItems[randomNum].name}
-            </p>
-            <img
-              src={dataScienceItems[randomNum].image_path}
-              key={dataScienceItems[randomNum].name}
-              alt="datascience image"
-            />
-            <p className={styles.title}>
-              {dataScienceItems[randomNum].category}
-            </p>
-            <p>
-              Learn more about {dataScienceItems[randomNum].name}{" "}
-              <a href={dataScienceItems[randomNum].website}>here</a>
-            </p>
-          </Typography>
-        </CardContent>
-      </Card>
+        <>
+          <div className={styles.details}>
+            <h2 className={styles["area-interest"]}>
+              Your Area of Interest: <b>{category}</b>
+            </h2>
+            <h3>Did you know:</h3>
+            <div>
+              <ShowMore
+                ref={ref}
+                lines={3}
+                more={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowDownIcon />
+                  </IconButton>
+                }
+                less={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowUp />
+                  </IconButton>
+                }
+              >
+                <p>{dataScienceItems[randomNum].details}</p>
+              </ShowMore>
+            </div>
+          </div>
+          <Card className={styles.card}>
+            <CardContent className={styles["card-content"]}>
+              <Typography variant="body2" color="text.seconday">
+                <p id={dataScienceItems[randomNum].id}>
+                  About {dataScienceItems[randomNum].name}
+                  <IconButton>
+                    <FavoriteIcon />
+                  </IconButton>
+                </p>
+                <img
+                  src={dataScienceItems[randomNum].image_path}
+                  key={dataScienceItems[randomNum].name}
+                  alt="datascience image"
+                />
+                <p className={styles.title}>
+                  {dataScienceItems[randomNum].category}
+                </p>
+                <p>
+                  Learn more about {dataScienceItems[randomNum].name}{" "}
+                  <a href={dataScienceItems[randomNum].website}>here</a>
+                </p>
+              </Typography>
+            </CardContent>
+          </Card>
+        </>
       )}
 
       {category === "Software Engineering" && (
-        <Card className={styles.card}>
-        <CardContent className={styles["card-content"]}>
-          <Typography variant="body2" color="text.seconday">
-            <p id={softwareEngineeringItems[randomNum].id}>
-              About {softwareEngineeringItems[randomNum].name}
-            </p>
-            <img
-              src={softwareEngineeringItems[randomNum].image_path}
-              key={softwareEngineeringItems[randomNum].name}
-              alt="software engineering image"
-            />
-            <p className={styles.title}>
-              {softwareEngineeringItems[randomNum].category}
-            </p>
-            <p>
-              Learn more about {softwareEngineeringItems[randomNum].name}{" "}
-              <a href={softwareEngineeringItems[randomNum].website}>here</a>
-            </p>
-          </Typography>
-        </CardContent>
-      </Card>
+        <>
+          <div className={styles.details}>
+            <h2 className={styles["area-interest"]}>
+              Your Area of Interest: <b>{category}</b>
+            </h2>
+            <h3>Did you know:</h3>
+            <div>
+              <ShowMore
+                ref={ref}
+                lines={3}
+                more={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowDownIcon />
+                  </IconButton>
+                }
+                less={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowUp />
+                  </IconButton>
+                }
+              >
+                <p>{softwareEngineeringItems[randomNum].details}</p>
+              </ShowMore>
+            </div>
+          </div>
+          <Card className={styles.card}>
+            <CardContent className={styles["card-content"]}>
+              <Typography variant="body2" color="text.seconday">
+                <p id={softwareEngineeringItems[randomNum].id}>
+                  About {softwareEngineeringItems[randomNum].name}
+                  <IconButton>
+                    <FavoriteIcon />
+                  </IconButton>
+                </p>
+                <img
+                  src={softwareEngineeringItems[randomNum].image_path}
+                  key={softwareEngineeringItems[randomNum].name}
+                  alt="software engineering image"
+                />
+                <p className={styles.title}>
+                  {softwareEngineeringItems[randomNum].category}
+                </p>
+                <p>
+                  Learn more about {softwareEngineeringItems[randomNum].name}{" "}
+                  <a href={softwareEngineeringItems[randomNum].website}>here</a>
+                </p>
+              </Typography>
+            </CardContent>
+          </Card>
+        </>
       )}
 
       {category === "Cybersecurity" && (
-        <Card className={styles.card}>
-        <CardContent className={styles["card-content"]}>
-          <Typography variant="body2" color="text.seconday">
-            <p id={cyberSecurityItems[randomNum].id}>
-              About {cyberSecurityItems[randomNum].name}
-            </p>
-            <img
-              src={cyberSecurityItems[randomNum].image_path}
-              key={cyberSecurityItems[randomNum].name}
-              alt="cybersecurity image"
-            />
-            <p className={styles.title}>
-              {cyberSecurityItems[randomNum].category}
-            </p>
-            <p>
-              Learn more about {cyberSecurityItems[randomNum].name}{" "}
-              <a href={cyberSecurityItems[randomNum].website}>here</a>
-            </p>
-          </Typography>
-        </CardContent>
-      </Card>
+        <>
+          <div className={styles.details}>
+            <h2 className={styles["area-interest"]}>
+              Your Area of Interest: <b>{category}</b>
+            </h2>
+            <h3>Did you know:</h3>
+            <div>
+              <ShowMore
+                ref={ref}
+                lines={3}
+                more={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowDownIcon />
+                  </IconButton>
+                }
+                less={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowUp />
+                  </IconButton>
+                }
+              >
+                <p>{cyberSecurityItems[randomNum].details}</p>
+              </ShowMore>
+            </div>
+          </div>
+          <Card className={styles.card}>
+            <CardContent className={styles["card-content"]}>
+              <Typography variant="body2" color="text.seconday">
+                <p id={cyberSecurityItems[randomNum].id}>
+                  About {cyberSecurityItems[randomNum].name}
+                  <IconButton>
+                    <FavoriteIcon />
+                  </IconButton>
+                </p>
+                <img
+                  src={cyberSecurityItems[randomNum].image_path}
+                  key={cyberSecurityItems[randomNum].name}
+                  alt="cybersecurity image"
+                />
+                <p className={styles.title}>
+                  {cyberSecurityItems[randomNum].category}
+                </p>
+                <p>
+                  Learn more about {cyberSecurityItems[randomNum].name}{" "}
+                  <a href={cyberSecurityItems[randomNum].website}>here</a>
+                </p>
+              </Typography>
+            </CardContent>
+          </Card>
+        </>
       )}
 
       {category === "Design" && (
-        <Card className={styles.card}>
-        <CardContent className={styles["card-content"]}>
-          <Typography variant="body2" color="text.seconday">
-            <p id={designItems[randomNum].id}>
-              About {designItems[randomNum].name}
-            </p>
-            <img
-              src={designItems[randomNum].image_path}
-              key={designItems[randomNum].name}
-              alt="design image"
-            />
-            <p className={styles.title}>
-              {designItems[randomNum].category}
-            </p>
-            <p>
-              Learn more about {designItems[randomNum].name}{" "}
-              <a href={designItems[randomNum].website}>here</a>
-            </p>
-          </Typography>
-        </CardContent>
-      </Card>
+        <>
+          <div className={styles.details}>
+            <h2 className={styles["area-interest"]}>
+              Your Area of Interest: <b>{category}</b>
+            </h2>
+            <h3>Did you know:</h3>
+            <div>
+              <ShowMore
+                ref={ref}
+                lines={3}
+                more={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowDownIcon />
+                  </IconButton>
+                }
+                less={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowUp />
+                  </IconButton>
+                }
+              >
+                <p>{designItems[randomNum].details}</p>
+              </ShowMore>
+            </div>
+          </div>
+          <Card className={styles.card}>
+            <CardContent className={styles["card-content"]}>
+              <Typography variant="body2" color="text.seconday">
+                <p id={designItems[randomNum].id}>
+                  About {designItems[randomNum].name}
+                  <IconButton>
+                    <FavoriteIcon />
+                  </IconButton>
+                </p>
+                <img
+                  src={designItems[randomNum].image_path}
+                  key={designItems[randomNum].name}
+                  alt="design image"
+                />
+                <p className={styles.title}>
+                  {designItems[randomNum].category}
+                </p>
+                <p>
+                  Learn more about {designItems[randomNum].name}{" "}
+                  <a href={designItems[randomNum].website}>here</a>
+                </p>
+              </Typography>
+            </CardContent>
+          </Card>
+        </>
       )}
 
       {category === "Entrepeneurship" && (
-       <Card className={styles.card}>
-       <CardContent className={styles["card-content"]}>
-         <Typography variant="body2" color="text.seconday">
-           <p id={entrepeneurshipItems[randomNum].id}>
-             About {entrepeneurshipItems[randomNum].name}
-           </p>
-           <img
-             src={entrepeneurshipItems[randomNum].image_path}
-             key={entrepeneurshipItems[randomNum].name}
-             alt="entrepeneurship image"
-           />
-           <p className={styles.title}>
-             {entrepeneurshipItems[randomNum].category}
-           </p>
-           <p>
-             Learn more about {entrepeneurshipItems[randomNum].name}{" "}
-             <a href={entrepeneurshipItems[randomNum].website}>here</a>
-           </p>
-         </Typography>
-       </CardContent>
-     </Card>
+        <>
+          <div className={styles.details}>
+            <h2 className={styles["area-interest"]}>
+              Your Area of Interest: <b>{category}</b>
+            </h2>
+            <h3>Did you know:</h3>
+            <div>
+              <ShowMore
+                ref={ref}
+                lines={3}
+                more={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowDownIcon />
+                  </IconButton>
+                }
+                less={
+                  <IconButton
+                    sx={{ backgroundColor: "white" }}
+                    disableRipple
+                    onClick={toggleLines}
+                  >
+                    <KeyboardArrowUp />
+                  </IconButton>
+                }
+              >
+                <p>{entrepeneurshipItems[randomNum].details}</p>
+              </ShowMore>
+            </div>
+          </div>
+          <Card className={styles.card}>
+            <CardContent className={styles["card-content"]}>
+              <Typography variant="body2" color="text.seconday">
+                <p id={entrepeneurshipItems[randomNum].id}>
+                  About {entrepeneurshipItems[randomNum].name}
+                  <IconButton>
+                    <FavoriteIcon />
+                  </IconButton>
+                </p>
+                <img
+                  src={entrepeneurshipItems[randomNum].image_path}
+                  key={entrepeneurshipItems[randomNum].name}
+                  alt="entrepeneurship image"
+                />
+                <p className={styles.title}>
+                  {entrepeneurshipItems[randomNum].category}
+                </p>
+                <p>
+                  Learn more about {entrepeneurshipItems[randomNum].name}{" "}
+                  <a href={entrepeneurshipItems[randomNum].website}>here</a>
+                </p>
+              </Typography>
+            </CardContent>
+          </Card>
+        </>
       )}
       {/* )} */}
     </div>
