@@ -44,6 +44,9 @@ function AspirationOutput() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.details}>
+      <h2 style={{paddingLeft:'20px'}}>Your Area of Interest: {category}</h2>
+      </div>
       {category === "Engineering" && (
         <Card className={styles.card}>
           <CardContent className={styles["card-content"]}>

@@ -2,9 +2,13 @@
     height:550px;
     padding-top: 8px;
     flex-direction: row;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     display: flex;
     padding-right: 200px;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .card{
@@ -25,4 +29,10 @@
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
     font-style: normal;
+}
+.details{
+    display: flex;
+    width: 400px;
+    margin-left: 10px;
+    flex: 1 1;
 }
