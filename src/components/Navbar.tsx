@@ -64,17 +64,12 @@ function Navbar() {
             </li>
             <li onClick={removeActive}>
               <a href="#home" className={`${styles.navLink}`}>
-                Catalog
+                About
               </a>
             </li>
             <li onClick={removeActive}>
               <a href="#home" className={`${styles.navLink}`}>
-                All products
-              </a>
-            </li>
-            <li onClick={removeActive}>
-              <a href="#home" className={`${styles.navLink}`}>
-                Contact
+                Login/Regiser
               </a>
             </li>
           </ul>

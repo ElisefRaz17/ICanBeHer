@@ -43,7 +43,7 @@ const Signup = () => {
   return (
     <div className={styles.container}>
       <form className={styles.form}>
-        <h3 style={{ textAlign: "center" }}>Sign Up</h3>
+        <h3 className={styles.header}>Sign Up</h3>
         <div className={styles.row}>
           <div className={styles.column}>
             <div className="mb-3">
