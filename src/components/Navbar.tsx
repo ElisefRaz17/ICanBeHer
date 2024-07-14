@@ -13,9 +13,10 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function Navbar() {
+  const [isActive, setIsActive] = React.useState(false);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -23,7 +24,13 @@ function Navbar() {
     null
   );
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
-  const pages = ['Products', 'Pricing', 'Blog'];
+  const pages = ["Products", "Pricing", "Blog"];
+  const toggleActiveClass = () => {
+    setIsActive(!isActive);
+  };
+  const removeActive = () => {
+    setIsActive(false);
+  };
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -39,134 +46,177 @@ function Navbar() {
     setAnchorElUser(null);
   };
   return (
+    <div className="App">
+      <header>
+        <nav className={`${styles.navbar}`}>
+          {/* logo */}
+          <a href="#home" className={`${styles.logo}`}>
+            <img
+              src={Logo}
+              style={{ width: "120px", height: "100px"}}
+            />
+          </a>
+          <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
+            <li onClick={removeActive}>
+              <a href="#home" className={`${styles.navLink}`}>
+                Home
+              </a>
+            </li>
+            <li onClick={removeActive}>
+              <a href="#home" className={`${styles.navLink}`}>
+                Catalog
+              </a>
+            </li>
+            <li onClick={removeActive}>
+              <a href="#home" className={`${styles.navLink}`}>
+                All products
+              </a>
+            </li>
+            <li onClick={removeActive}>
+              <a href="#home" className={`${styles.navLink}`}>
+                Contact
+              </a>
+            </li>
+          </ul>
+          <div
+            className={`${styles.hamburger} ${isActive ? styles.active : ""}`}
+            onClick={toggleActiveClass}
+          >
+            <span className={`${styles.bar}`}></span>
+            <span className={`${styles.bar}`}></span>
+            <span className={`${styles.bar}`}></span>
+          </div>
+        </nav>
+      </header>
+    </div>
     // <div className={styles["nav-container"]}>
     //   <img src={Logo} className={styles.logo} />
     //   <Avatar className={styles.avatar}>EF</Avatar>
     // </div>
-    <AppBar position="static">
-      <Container maxWidth="xl" className={styles.navContainer}>
-        <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-              height: '90px',
-              flexGrow:1
-            }}
-          >
-            <img src={Logo} className={styles.logo} />
-          </Typography>
+    // <AppBar position="static">
+    //   <Container maxWidth="xl" className={styles.navContainer}>
+    //     <Toolbar disableGutters>
+    //       {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+    //       <Typography
+    //         variant="h6"
+    //         noWrap
+    //         component="a"
+    //         href="#app-bar-with-responsive-menu"
+    //         sx={{
+    //           mr: 2,
+    //           display: { xs: "none", md: "flex" },
+    //           fontFamily: "monospace",
+    //           fontWeight: 700,
+    //           letterSpacing: ".3rem",
+    //           color: "inherit",
+    //           textDecoration: "none",
+    //           height: '90px',
+    //           flexGrow:1
+    //         }}
+    //       >
+    //         <img src={Logo} className={styles.logo} />
+    //       </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            {/* <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            sx={{
-              display: { xs: 'block', md: 'none' },
-            }}
-          >
-            {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
-              </MenuItem>
-            ))}
-          </Menu> */}
-          </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            <img src={Logo} className={styles.logo} />
-          </Typography>
-          {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          {pages.map((page) => (
-            <Button
-              key={page}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              {page}
-            </Button>
-          ))}
-        </Box> */}
+    //       <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+    //         <IconButton
+    //           size="large"
+    //           aria-label="account of current user"
+    //           aria-controls="menu-appbar"
+    //           aria-haspopup="true"
+    //           onClick={handleOpenNavMenu}
+    //           color="inherit"
+    //         >
+    //           <MenuIcon />
+    //         </IconButton>
+    //         {/* <Menu
+    //         id="menu-appbar"
+    //         anchorEl={anchorElNav}
+    //         anchorOrigin={{
+    //           vertical: 'bottom',
+    //           horizontal: 'left',
+    //         }}
+    //         keepMounted
+    //         transformOrigin={{
+    //           vertical: 'top',
+    //           horizontal: 'left',
+    //         }}
+    //         open={Boolean(anchorElNav)}
+    //         onClose={handleCloseNavMenu}
+    //         sx={{
+    //           display: { xs: 'block', md: 'none' },
+    //         }}
+    //       >
+    //         {pages.map((page) => (
+    //           <MenuItem key={page} onClick={handleCloseNavMenu}>
+    //             <Typography textAlign="center">{page}</Typography>
+    //           </MenuItem>
+    //         ))}
+    //       </Menu> */}
+    //       </Box>
+    //       {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+    //       <Typography
+    //         variant="h5"
+    //         noWrap
+    //         component="a"
+    //         href="#app-bar-with-responsive-menu"
+    //         sx={{
+    //           mr: 2,
+    //           display: { xs: "flex", md: "none" },
+    //           flexGrow: 1,
+    //           fontFamily: "monospace",
+    //           fontWeight: 700,
+    //           letterSpacing: ".3rem",
+    //           color: "inherit",
+    //           textDecoration: "none",
+    //         }}
+    //       >
+    //         <img src={Logo} className={styles.logo} />
+    //       </Typography>
+    //       {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+    //       {pages.map((page) => (
+    //         <Button
+    //           key={page}
+    //           onClick={handleCloseNavMenu}
+    //           sx={{ my: 2, color: 'white', display: 'block' }}
+    //         >
+    //           {page}
+    //         </Button>
+    //       ))}
+    //     </Box> */}
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings" sx={{gap:'1rem'}}>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp"sx={{backgroundColor:'lightpink'}} src="/static/images/avatar/2.jpg" />
-                <LogoutIcon sx={{color:'lightpink'}}/>
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    //       <Box sx={{ flexGrow: 0 }}>
+    //         <Tooltip title="Open settings" sx={{gap:'1rem'}}>
+    //           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+    //             <Avatar alt="Remy Sharp"sx={{backgroundColor:'lightpink'}} src="/static/images/avatar/2.jpg" />
+    //             <LogoutIcon sx={{color:'lightpink'}}/>
+    //           </IconButton>
+    //         </Tooltip>
+    //         <Menu
+    //           sx={{ mt: "45px" }}
+    //           id="menu-appbar"
+    //           anchorEl={anchorElUser}
+    //           anchorOrigin={{
+    //             vertical: "top",
+    //             horizontal: "right",
+    //           }}
+    //           keepMounted
+    //           transformOrigin={{
+    //             vertical: "top",
+    //             horizontal: "right",
+    //           }}
+    //           open={Boolean(anchorElUser)}
+    //           onClose={handleCloseUserMenu}
+    //         >
+    //           {settings.map((setting) => (
+    //             <MenuItem key={setting} onClick={handleCloseUserMenu}>
+    //               <Typography textAlign="center">{setting}</Typography>
+    //             </MenuItem>
+    //           ))}
+    //         </Menu>
+    //       </Box>
+    //     </Toolbar>
+    //   </Container>
+    // </AppBar>
   );
 }
 

@@ -1,17 +1,29 @@
 import React, { MouseEventHandler, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { auth } from "../../database/firebaseConfig";
 import styles from "../../styling/signupform.module.css";
-
+import { useAuthValue } from "../../database/AuthContext";
 
 const Signup = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
+  const [github, setGitHub] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [education, setEducation] = useState("");
+  const [job, setJob] = useState("");
+  const [interests, setInterest] = useState("");
 
-  const onSubmit: MouseEventHandler<HTMLButtonElement> = async (e) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -31,43 +43,135 @@ const Signup = () => {
   return (
     <div className={styles.container}>
       <form className={styles.form}>
-        <h3 style={{textAlign:"center"}}>Sign Up</h3>
-        <div className="mb-3">
-          <label>First name</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="First name"
-          />
+        <h3 style={{ textAlign: "center" }}>Sign Up</h3>
+        <div className={styles.row}>
+          <div className={styles.column}>
+            <div className="mb-3">
+              <label htmlFor="first-name">First name</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="First name"
+                name="First Name"
+                value={firstName}
+                required
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="last-name">Last name</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Last name"
+                name="Last Name"
+                value={lastName}
+                required
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="email-address">Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter email"
+                required
+                name="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter password"
+                name="Password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                style={{ backgroundColor: "#9CB2FF" }}
+              >
+                Create Account
+              </button>
+            </div>
+            <p className="forgot-password text-right">
+              Already registered <a href="/sign-in">sign in?</a>
+            </p>
+          </div>
+          <div className={styles.column}>
+            <div className="mb-3">
+              <label>Github(optional)</label>
+              <input
+                type="url"
+                className="form-control"
+                placeholder="Github Link"
+                name="Github"
+                value={github}
+              />
+            </div>
+            <div className="mb-3">
+              <label>LinkedIn(optional)</label>
+              <input
+                type="url"
+                className="form-control"
+                placeholder="LinkedIn Link"
+                name="LinkedIn"
+                value={linkedin}
+              />
+            </div>
+            <div className="mb-3">
+              <label>Education(optional)</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Ex: University of Southern California"
+                name="Education"
+                value={education}
+              />
+            </div>
+            <div className="mb-3">
+              <label>Job(optional)</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Ex: Software Engineer at Microsoft"
+                name="Job"
+                value={job}
+              />
+            </div>
+            <div className="mb-3">
+              <label>Interests</label>
+              <textarea
+                className="form-control"
+                placeholder="Interests"
+                name="Interests"
+                value={interests}
+              />
+            </div>
+          </div>
         </div>
-        <div className="mb-3">
-          <label>Last name</label>
-          <input type="text" className="form-control" placeholder="Last name" />
-        </div>
-        <div className="mb-3">
-          <label>Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter email"
-          />
-        </div>
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter password"
-          />
-        </div>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary" style={{backgroundColor:'#9CB2FF'}}>
+
+        {/* <div className="mb-3">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ backgroundColor: "#9CB2FF" }}
+          >
             Create Account
           </button>
         </div>
         <p className="forgot-password text-right">
           Already registered <a href="/sign-in">sign in?</a>
-        </p>
+        </p> */}
       </form>
     </div>
   );

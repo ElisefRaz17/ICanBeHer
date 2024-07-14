@@ -13,6 +13,11 @@
     bottom:0;
     right:0;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 .footer-logo{
     width:85px;
     height:85px;

@@ -1,4 +1,4 @@
-.logo{
+/* .logo{
     height:150px;
     width:200px;
     
@@ -9,14 +9,108 @@ opacity: 100%;
 background-image: radial-gradient(#444cf7 0.5px, #FDFAEC 0.5px);
 background-size: 10px 10px;
     
-}
-/* 
-.nav-container{
-    display: flex;
-    flex-direction: row;
-    
-}
-
-.avatar{
-    display: flex;
 } */
+
+  ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+  }
+  
+  /* navbar */
+  .navbar {
+    background-color: #FDFAEC;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    height: 100px;
+    opacity: 100%;
+    background-image: radial-gradient(#444cf7 0.5px, #FDFAEC 0.5px);
+    background-size: 10px 10px;
+  }
+  
+  
+  /* logo  */
+  .logo {
+    height: 100px;
+    width: 50px;
+    padding-bottom: 20px;
+    align-self: center;
+    padding-top: 20px;
+  }
+  
+  
+  /* ul  */
+  .navMenu {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 3px;
+    padding-right: 40px;
+  }
+  
+  /* media queries */
+  
+  @media screen and (max-width: 780px){
+    
+    /* hamburger */
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      color: #9CB2FF;
+    }
+  
+    .bar {
+          background-color: #9CB2FF;
+          /* background-image: radial-gradient(#444cf7 0.5px, #FDFAEC 0.5px); */
+          width: 20px;
+          height: 3px;
+          display: block;
+          margin: 5px;
+          -webkit-transition: 0.3s ease-in-out;
+          transition: 0.3s ease-in-out;
+      }
+  
+    /* adding active class to the bars  */
+    .hamburger.active .bar:nth-child(2){
+      opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  
+  
+    /* navMenu */
+  
+    .navMenu{
+      position: absolute;
+      flex-direction: column;
+      gap: 0;
+      top: 70px;
+      left: -100%;
+      text-align: start;
+      width: 100%;
+      transition: 0.7s ease-in-out;
+      background-color: #9CB2FF;
+      padding: 10px;
+    }
+  
+    .navMenu.active{
+      left: 0;
+    }
+  
+    .navMenu li {
+      margin: 16px 0;
+    }
+  }
