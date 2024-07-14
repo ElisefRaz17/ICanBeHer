@@ -39,7 +39,7 @@ function Dashboard(props: any) {
       {selected === "Engineering" && (
         <div className={styles["responsive-two-column-grid"]}>
           {engineeringItems.map((item) => (
-            <Card sx={{width:"300px", height:"300px"}}>
+            <Card sx={{width:"300px", height:"350px"}}>
               <CardContent>
               <Typography variant="body2" color="text.seconday">
                 <p id={item.id}>{item.name}</p>
