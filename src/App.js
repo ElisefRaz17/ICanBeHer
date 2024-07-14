@@ -12,6 +12,7 @@ import AspirationOutput from "./components/pages/AspirationOutput";
 import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 
+
 function App() {
   return (
     <Router>

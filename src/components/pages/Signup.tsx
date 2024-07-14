@@ -11,7 +11,6 @@ import { setUser } from "../../features/user/UserSlice";
 import styles from "../../styling/signupform.module.css";
 import { useAuthValue } from "../../database/AuthContext";
 import Form from "../Form";
-
 const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -36,6 +35,7 @@ const Signup = () => {
  }
 
   return (
+    
     <Form handleRegister={handleRegister}/>
   );
 };
