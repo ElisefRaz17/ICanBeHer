@@ -14,11 +14,8 @@ import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 import Dashboard from "./components/pages/Dashboard";
 
-export const StateContext = createContext();
 function App() {
-  const [aspiration, setAspiration] = React.useState("");
   return (
-    <StateContext.Provider value={{aspiration,setAspiration}}>
     <Router>
       <Navbar />
       <Routes>
@@ -30,7 +27,6 @@ function App() {
       </Routes>
       <Footer/>
     </Router>
-    </StateContext.Provider>
   );
 }
 

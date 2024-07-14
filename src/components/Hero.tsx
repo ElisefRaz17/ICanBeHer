@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "../styling/hero.module.css";
 import HeroImage from "../assets/HeroImage.png";
 import Box from "@mui/material/Box";
@@ -8,10 +8,12 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import { AspirationContext } from "./context";
 import womenInTechnology from "./data";
 function Hero() {
-  const [aspiration, setAspiration] = React.useState("");
-  const [name, setName] = React.useState({});
+  const {aspiration, setAspiration} = useContext(AspirationContext);
+  const navigate = useNavigate();
+
   const handleChange = (event: SelectChangeEvent) => {
     event.preventDefault();
     setAspiration(event.target.value);
