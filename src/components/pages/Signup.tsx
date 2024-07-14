@@ -73,6 +73,7 @@ const Signup = () => {
             <div className="mb-3">
               <label htmlFor="email-address">Email address</label>
               <input
+                id="email"
                 type="email"
                 className="form-control"
                 placeholder="Enter email"
@@ -85,6 +86,7 @@ const Signup = () => {
             <div className="mb-3">
               <label>Password</label>
               <input
+                id="password"
                 type="password"
                 className="form-control"
                 placeholder="Enter password"
