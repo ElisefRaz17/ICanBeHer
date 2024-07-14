@@ -4,20 +4,21 @@
     background-image: radial-gradient(#444cf7 0.5px, #FDFAEC 0.5px);
     background-size: 10px 10px;
     width: 100%;
-    height: 88px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    position:absolute;
-    left:0;
-    bottom:0;
-    right:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: relative;
+    left: 0;
+    bottom: 0;
 }
-body {
+/* body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-  }
+    height: 1000px;
+  } */
 .footer-logo{
     width:85px;
     height:85px;
@@ -33,13 +34,8 @@ body {
 }
 @media (max-width: 768px), (max-height: 550px) { 
     .container{
-        display: block;
-    text-align: center;
-    font-size: 0.75em;
-    bottom:0;
-    width: 100%;
-    height: 30px;
-    position: fixed;
+        text-align: center;
+        font-size: 0.75em;
     }
 
 

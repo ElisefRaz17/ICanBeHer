@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from "react";
 import { Button, Card, CardContent, IconButton, SelectChangeEvent, Typography } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import womenInTechnology from "../data";
 import styles from "../../styling/aspirationoutput.module.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -24,7 +24,7 @@ function AspirationOutput() {
     inputRef.current?.focus(); /** used to stop rerendering when Like button is clicked */
     setLiked(true);
   }
-
+  console.log(category);
   const ref = useRef<ShowMoreRef>(null);
   const toggleLines: ShowMoreToggleLinesFn = (e) => {
     ref.current?.toggleLines(e);
@@ -120,7 +120,9 @@ function AspirationOutput() {
                   <a href={engineeringItems[randomNum].website}>here</a>
                 </p>
                 <Button onClick={handleClick} className={styles.moreBtn} sx={{backgroundColor:"#9CB2FF"}}type="button">
+                    <Link to="/dashboard" state={{category}}>
                      View more Engineers
+                     </Link>
                   </Button>
               </Typography>
             </CardContent>
