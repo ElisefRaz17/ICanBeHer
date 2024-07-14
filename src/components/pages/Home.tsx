@@ -37,11 +37,11 @@ function Home() {
   }, []);
   return (
     <>
-      <nav>
+      {/* <nav>
         <div>
           <button onClick={handleLogout}>Logout</button>
         </div>
-      </nav>
+      </nav> */}
       <Hero />
     </>
   );
