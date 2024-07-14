@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import { Card, CardContent, IconButton, SelectChangeEvent, Typography } from "@mui/material";
+import { Button, Card, CardContent, IconButton, SelectChangeEvent, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import womenInTechnology from "../data";
 import styles from "../../styling/aspirationoutput.module.css";
@@ -16,6 +16,7 @@ function AspirationOutput() {
   const location = useLocation();
   const category = location.state.aspiration;
   const [randomNum, setRandomNum] = React.useState(0);
+  const [selected, setSelected] = React.useState(0);
   const [liked, setLiked] = React.useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -32,10 +33,11 @@ function AspirationOutput() {
     (item) => item.category === category
   );
 
-  const generateRandomNum = () => {
-    const randomNum = Math.floor(Math.random() * womenInTechnology.length);
-    setRandomNum(randomNum);
-  };
+  // const generateRandomNum = () => {
+  //   const randomNum = Math.floor(Math.random() * womenInTechnology.length);
+  //   setRandomNum(randomNum);
+  //   console.log(randomNum);
+  // };
   // womenInTechnology[Math.floor(Math.random() * womenInTechnology.length)];
   const engineeringItems = womenInTechnology.filter(
     (item) => item.category === "Engineering"
@@ -62,7 +64,7 @@ function AspirationOutput() {
   // console.log(selectedItem);
   // console.log(womenInTechnology.length);
   // console.log(category);
-
+  
   return (
     <div className={styles.container}>
       {category === "Engineering" && (
@@ -104,10 +106,6 @@ function AspirationOutput() {
               <Typography variant="body2" color="text.seconday">
                 <p id={engineeringItems[randomNum].id}>
                   About {engineeringItems[randomNum].name}
-                  <IconButton onClick={handleClick}  type="button">
-                    {liked ?
-                    <FavoriteIcon sx={{color:'red'}}/> : <FavoriteBorderOutlinedIcon/>}
-                  </IconButton>
                 </p>
                 <img
                   src={engineeringItems[randomNum].image_path}
@@ -121,6 +119,9 @@ function AspirationOutput() {
                   Learn more about {engineeringItems[randomNum].name}{" "}
                   <a href={engineeringItems[randomNum].website}>here</a>
                 </p>
+                <Button onClick={handleClick} className={styles.moreBtn} sx={{backgroundColor:"#9CB2FF"}}type="button">
+                     View more Engineers
+                  </Button>
               </Typography>
             </CardContent>
           </Card>

@@ -12,19 +12,29 @@
     padding: 50px;
     padding-top: 20px;
     gap: 2rem;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
 
 }
 
-.favorite-btn{
+/* .favorite-btn{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     width: 245px;
+} */
+.moreBtn{
+     background-color: #9CB2FF;
+     color:white;
+     font-family:"Barlow";
+     &:hover{
+        background-color: blueviolet;
+     }
 }
-
 .card{
     width:342px;
-    height:400px;
+    height:500px;
     align-self: center;
     
 }
