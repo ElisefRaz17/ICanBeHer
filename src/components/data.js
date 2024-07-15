@@ -6,6 +6,7 @@ var womenInTechnology = [
     image_path: "",
     website: "",
     category: "Development",
+    liked:false
   },
 
   {
@@ -17,6 +18,7 @@ var womenInTechnology = [
       "http://women.cs.cmu.edu/ada/Resources/Women/pictures/barbara_liskov.png",
     website: "http://en.wikipedia.org/wiki/Barbara_Liskov",
     category: "Engineering",
+    liked:false
   },
   {
     id:"6",
@@ -27,6 +29,7 @@ var womenInTechnology = [
       "http://t1.gstatic.com/images?q=tbn:ANd9GcQM-N94vcAjci0jp4k3Y3jD3LbZLNQTyW30tOrUnIN3Bjdq66-8",
     website: "http://en.wikipedia.org/wiki/Betty_Holberton",
     category: "Engineering",
+    liked:false
   },
   {
     id:"5",
@@ -36,6 +39,7 @@ var womenInTechnology = [
     image_path: "http://atariage.com/forums/uploads/post-4709-1133813646.jpg",
     website: "http://en.wikipedia.org/wiki/Carla_Meninsky",
     category: "Engineering",
+    liked:false
   },
   {
     id:"4",
@@ -46,6 +50,7 @@ var womenInTechnology = [
     image_path:
       "http://women.cs.cmu.edu/ada/Resources/Women/pictures/frances_allen.jpg",
     category: "Engineering",
+    liked:false
   },
   {
     id:"3",
@@ -57,6 +62,7 @@ var womenInTechnology = [
       "http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/KayMcNulty_maturitn%C3%AD_fotografie.jpg/200px-KayMcNulty_maturitn%C3%AD_fotografie.jpg",
     image_width: "150",
     category: "Engineering",
+    liked:false
   },
   {
     id:"2",
@@ -68,6 +74,7 @@ var womenInTechnology = [
       "http://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Limor_Fried_2010.jpg/220px-Limor_Fried_2010.jpg",
     image_width: "150",
     category: "Engineering",
+    liked:false
   },
   {
     id:"1",
@@ -80,6 +87,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"9",
@@ -92,6 +100,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"10",
@@ -104,6 +113,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"11",
@@ -116,6 +126,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"12",
@@ -127,6 +138,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"13",
@@ -139,6 +151,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"14",
@@ -151,6 +164,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"15",
@@ -162,6 +176,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"16",
@@ -174,6 +189,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Engineering",
+    liked:false
   },
   {
     id:"17",
@@ -185,6 +201,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"18",
@@ -197,6 +214,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"19",
@@ -209,6 +227,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"20",
@@ -221,6 +240,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"21",
@@ -233,6 +253,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"22",
@@ -244,6 +265,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"23",
@@ -256,6 +278,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"24",
@@ -267,6 +290,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"25",
@@ -279,6 +303,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"26",
@@ -290,6 +315,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"27",
@@ -301,6 +327,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"28",
@@ -313,6 +340,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Entrepeneurship",
+    liked:false
   },
   {
     id:"29",
@@ -325,6 +353,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Software Engineering",
+    liked:false
   },
   {
     id:"30",
@@ -337,6 +366,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Software Engineering",
+    liked:false
   },
   {
     id:"31",
@@ -348,6 +378,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Design",
+    liked:false
   },
   {
     id:"32",
@@ -359,6 +390,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Design",
+    liked:false
   },
   {
     id:"33",
@@ -371,6 +403,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Design",
+    liked:false
   },
   {
     id:"34",
@@ -383,6 +416,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Design",
+    liked:false
   },
   {
     id:"35",
@@ -394,6 +428,7 @@ var womenInTechnology = [
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Brenda_laurel_2016.jpg/330px-Brenda_laurel_2016.jpg",
     category: "Design",
+    liked:false
   },
   {
     id:"36",
@@ -404,6 +439,7 @@ var womenInTechnology = [
     details:
       "Carol is an award-winning author and speaker, and has published six books, including her latest, Usability Testing Essentials: Ready, Set … Test! Carol is co-founder and director of user research for UX Firm, based in Atlanta. In a former life she was director of graduate programs in Information Design and Communication at Southern Polytechnic State University and the director of the Usability Center. In 2013, Carol was named one of the Top 20 Women Professors in Georgia.",
     category: "Design",
+    liked:false
   },
   {
     id:"37",
@@ -414,6 +450,7 @@ var womenInTechnology = [
     details:
       "Irene Au designed the Internet’s first commercial web browser.Irene Au is an operating partner at Khosla Ventures, where she works with portfolio companies to make their design great. She has led design at Google (2006–2012), Yahoo! (1998–2006), and Udacity (2012–2014), shaped how the internet works and appears. Irene mentored literally hundreds of designers. She began her career as an interaction designer at Netscape Communications, where she designed the Internet’s first commercial web browser. She do influences the market, recently wrote “Design in Venture Capital: How Design Drives Investment and Company Success” by O’Reillly.",
     category: "Design",
+    liked:false
   },
   {
     id:"38",
@@ -424,6 +461,7 @@ var womenInTechnology = [
     details:
       "Julie Zhuo has been producing amazing content online on UX and design, while climbing from an engineering internship to VP of Product Design at Facebook. Julie leads the design team focused on engagement and core experiences at Facebook, including News Feed, content discovery, and Facebook’s mobile apps. She has been at Facebook since 2006 helping the service grow from 8 million users to over 1 billion. She writes regularly about design, technology, and life on Medium",
     category: "Design",
+    liked:false
   },
   {
     id:"39",
@@ -436,6 +474,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Design",
+    liked:false
   },
 
   {
@@ -449,6 +488,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Design",
+    liked:false
   },
   {
     id:"41",
@@ -460,6 +500,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Design",
+    liked:false
   },
   {
     id:"42",
@@ -470,6 +511,7 @@ var womenInTechnology = [
     image_path:
       "http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ada_Lovelace_portrait.jpg/220px-Ada_Lovelace_portrait.jpg",
     category: "Data Science",
+    liked:false
   },
   {
     id:"43",
@@ -480,6 +522,7 @@ var womenInTechnology = [
     details:
       "Dr Fei-Fei Li is a prominent American computer scientist who has made significant contributions to the field of artificial intelligence.Her notable work includes serving as the chief scientist of AI at Google in 2017, being the inventor of ImageNet and the ImageNet Challenge, and being a leading advocate for advocating for diversity in STEM and AI.She co-founded the non-profit organization AI4ALL, which focuses on promoting the diversity and accessibility of AI. Dr Li is widely regarded as an AI pioneer who places a strong emphasis on the importance of human values in the development of machine learning.",
     category: "Data Science",
+    liked:false
   },
   {
     id:"44",
@@ -491,6 +534,7 @@ var womenInTechnology = [
     details:
       "Katherine Johnson is one of the most famous female data scientists to date. She was featured in the book and movie, Hidden Figures, which highlighted the women who contributed to the 1960s space program. In 1939, Katherine Johnson was one of the first three African American students to enroll in a graduate program at West Virginia University. But this historical moment is not the only reason Katherine Johnson is celebrated today. Katherine Johnson is best known for her contributions at NASA. She is credited with using data to calculate a perfect path for Freedom 7, the spacecraft that put the first astronaut in space. She was also involved in the mission that sent the first aircraft to orbit Earth and the Apollo 11 mission which sent the first man to the Moon. ",
     category: "Data Science",
+    liked:false
   },
   {
     id:"45",
@@ -501,6 +545,7 @@ var womenInTechnology = [
     details:
       "Although most commonly known as the founder of modern nursing, Florence Nightingale was also a data scientist. She realized that the hospital was not keeping good records, resulting in poor quality patient data. As a result, with the support of Queen Victoria, Nightingale organized a Royal Commission to document the health of the army. It sought to analyze the army mortality data to determine the cause of death of the soldiers. They found that 16,000 of the 18,000 deaths were due to preventable disease, not battle. She is credited for transferring this data into a visual document known as the “Nightingale Rose Diagram” that showed the importance of new sanitation methods. This diagram also helped make complicated data accessible to all.",
     category: "Data Science",
+    liked:false
   },
   {
     id:"46",
@@ -512,6 +557,7 @@ var womenInTechnology = [
     website:
       "https://www.smithsonianmag.com/smithsonian-institution/margaret-hamilton-led-nasa-software-team-landed-astronauts-moon-180971575/",
     category: "Data Science",
+    liked:false
   },
 
   {
@@ -524,6 +570,7 @@ var womenInTechnology = [
     image_width: "150",
     tags: "Ada Lovelace Day,History of Computing,Women in Tech",
     category: "Cybersecurity",
+    liked:false
   },
   {
     id:"48",
@@ -533,6 +580,7 @@ var womenInTechnology = [
       "Clarke was a British mathematician and codebreaker during World War II, pioneering techniques for breaking German ciphers.  She worked at Bletchley Park on breaking codes generated by Enigma machines, eventually developing Alan Turing’s bombe technology to aid in deciphering complex Nazi messages.  Despite her immense contributions to cybersecurity, Clarke’s accomplishments were largely ignored until recently.  Joan Clarke passed away in 1986.  In 2013, she was posthumously awarded an OBE (Order of the British Empire) for her work as a cryptanalyst.",
     website: "",
     category: "Cybersecurity",
+    liked:false
   },
   {
     id:"49",
@@ -542,6 +590,7 @@ var womenInTechnology = [
       "In 1977, Landau graduated from MIT with a bachelor’s degree in Mathematics and Computer Science. With few women entering computer science programs at that time, Landau bucked convention and made her way into a male-dominated field.  She joined Xerox PARC’s System Development Lab shortly after graduating and was recruited by John Whitaker to work on Blue Brain, an initiative to reverse engineer a rat brain neuron-by-neuron to better understand human neural networks. It was there she met Marvin Minsky who encouraged her to pursue graduate studies in neuroscience at Brandeis University.  While completing her doctorate, she also worked part-time for BBN Technologies developing software for DARPA.  In 1986, Landau returned to academia when she accepted a position teaching computer science at Tufts University.  It wasn’t until 1988 that she left academia for good and became director of information security research at Sun Microsystems Laboratories.  There she began studying cryptography and network security..",
     website: "",
     category: "Cybersecurity",
+    liked:false
   },
   {
     id:"50",
@@ -549,8 +598,9 @@ var womenInTechnology = [
     image_path: "",
     details:
       "Even though Dorothy Denning was formally introduced to computers through a summer job at IBM when she was 16, it wasn’t until after she earned her Ph.D. that she took on cybersecurity as her full-time career, later joining the Naval Security Group and establishing a group focused on computer security. She went on to found Georgetown University’s Department of Computer Science and spearheaded research for several organizations.  In 1983, she became one of only two women to be elected as Fellows of the National Academy of Engineering.  The other?  Grace Hopper—the woman who coined debugging and compiler.  Clearly, these women were on to something big.",
-    website: "",
+    website:"",
     category: "Cybersecurity",
+    liked:false
   },
   {
     id:"51",
@@ -560,6 +610,7 @@ var womenInTechnology = [
       "Valerie Thomas led NASA’s cybersecurity program from 1989 to 1993, making her one of few women with a leadership role in cybersecurity at that time.  In that role, she helped develop protocols for NASA computers and became an advocate for women interested in cybersecurity careers. Her efforts culminated with her work on Planetary Defense: Protecting Earth from Asteroids and Comets –– a book she co-authored about ways to prevent an asteroid collision with Earth.  She passed away in 2016 after a battle with cancer.  To honor her contributions to cybersecurity, Congress awarded her posthumously with the Department of Commerce Gold Medal Award in 2017.",
     website: "",
     category: "Cybersecurity",
+    liked:false
   },
   {
     id:"52",
@@ -569,6 +620,7 @@ var womenInTechnology = [
       "CEO of Accenture. Sweet became CEO in September 2019, succeeding David Rowland, and has been at the forefront of leading the company's strategic transformation to adapt to the evolving digital landscape. Prior to becoming CEO, Sweet served as Accenture's General Counsel, Chief Compliance Officer, and Corporate Secretary. She was instrumental in driving the company's legal and compliance strategies, including the development and implementation of Accenture's global code of business ethics and the expansion of the company's legal and compliance operations in growth markets.Sweet has received numerous accolades and awards in recognition of her leadership and achievements. In 2020, she was named to Fortune's list of Most Powerful Women and Forbes' list of America's Top 50 Women in Tech. She was also named one of the World's 100 Most Powerful Women by Forbes in 2019. She is committed to fostering a diverse and inclusive work culture and has launched several initiatives to support the professional development and advancement of women and underrepresented groups in the workforce. One such initiative is to accomplish what most other executives at major companies have not: making sure men and women are represented equally in the company’s ranks by achieving a complete 50/50 workforce by 2025.",
     website: "",
     category: "Cybersecurity",
+    liked:false
   },
 ];
 

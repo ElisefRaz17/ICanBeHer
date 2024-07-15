@@ -17,30 +17,41 @@ function Dashboard(props: any) {
   const location = useLocation();
   const selected = location.state.category;
   const [liked, setLiked] = React.useState(false);
+  const  [list, setList] = React.useState(womenInTechnology);
   //   const selected = location.state.category;
-  const engineeringItems = womenInTechnology.filter(
+  const engineeringItems = list.filter(
     (item) => item.category === "Engineering"
   );
-  const dataScienceItems = womenInTechnology.filter(
+  const dataScienceItems = list.filter(
     (item) => item.category === "Data Science"
   );
-  const softwareEngineeringItems = womenInTechnology.filter(
+  const softwareEngineeringItems = list.filter(
     (item) => item.category === "Software Engineering"
   );
-  const designItems = womenInTechnology.filter(
+  const designItems = list.filter(
     (item) => item.category === "Design"
   );
-  const cyberSecurityItems = womenInTechnology.filter(
+  const cyberSecurityItems = list.filter(
     (item) => item.category === "Cybersecurity"
   );
-  const entrepeneurshipItems = womenInTechnology.filter(
+  const entrepeneurshipItems = list.filter(
     (item) => item.category === "Entrepeneurship"
   );
-  const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setLiked(true);
+  const handleChange = (id:string) => {
+    const newList = list.map((item)=>{
+        if(item.id === id){
+            const updateItem = {
+                ...item,
+                liked:!item.liked
+            };
+            return updateItem;
+        }
+        return item;
+    })
+   console.log(id);
+   setList(newList);
   };
-  console.log(selected);
+//   console.log(selected);
   return (
     <>
       {selected === "Engineering" && (
@@ -52,11 +63,11 @@ function Dashboard(props: any) {
                   <p id={item.id}>
                     {item.name}
 
-                    <IconButton onClick={handleChange} type="button">
-                      {liked ? (
-                        <FavoriteBorderOutlinedIcon />
-                      ) : (
+                    <IconButton onClick={()=> handleChange(item.id)} type="button">
+                      {item.liked ? (
                         <FavoriteIcon />
+                      ) : (
+                        <FavoriteBorderOutlinedIcon />
                       )}
                     </IconButton>
                   </p>
