@@ -17,6 +17,7 @@ function Dashboard(props: any) {
   const location = useLocation();
   const selected = location.state.category;
   const [liked, setLiked] = React.useState(false);
+  const [favs,setFavs] = React.useState({});
   const  [list, setList] = React.useState(womenInTechnology);
   //   const selected = location.state.category;
   const engineeringItems = list.filter(
@@ -52,6 +53,9 @@ function Dashboard(props: any) {
    setList(newList);
   };
 //   console.log(selected);
+// useEffect(()=>{
+//     setFavs(...newList)
+// })
   return (
     <>
       {selected === "Engineering" && (
