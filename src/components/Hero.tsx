@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "../styling/hero.module.css";
 import HeroImage from "../assets/HeroImage.png";
 import Box from "@mui/material/Box";
@@ -11,8 +11,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AspirationContext } from "./context";
 import womenInTechnology from "./data";
 function Hero() {
-  const {aspiration, setAspiration} = useContext(AspirationContext);
-  // const [aspirationValue, setAspiration] = aspiration;
+  //  const {aspiration, setAspiration} = useContext(AspirationContext);
+  const [aspiration, setAspiration] = useState("");
 
   const navigate = useNavigate();
 
