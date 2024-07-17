@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styling/navbar.module.css";
 import Logo from "../assets/Logo.png";
 import { Avatar } from "@mui/material";
@@ -14,23 +14,51 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Link } from "react-router-dom";
+import { auth, app } from "../database/firebaseConfig";
+import { onAuthStateChanged, signOut, User } from "firebase/auth";
 
 function Navbar() {
   const [isActive, setIsActive] = React.useState(false);
+  const [authenticatedUser, setAuthenticatedUser] = useState<User | null>(null);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
-  const pages = ["Products", "Pricing", "Blog"];
+  const settings = ["Dashboard", "Register", "Login"];
   const toggleActiveClass = () => {
     setIsActive(!isActive);
   };
   const removeActive = () => {
     setIsActive(false);
   };
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("user signed out");
+      })
+      .catch((error: Error) => console.log(error));
+  };
+  useEffect(() => {
+    const listenAuth = onAuthStateChanged(
+      auth,
+      (user) => {
+        if (user) {
+          setAuthenticatedUser(user);
+        } else {
+          setAuthenticatedUser(null);
+        }
+      },
+      (error: Error) => {
+        console.log(error);
+      }
+    );
+    return () => {
+      listenAuth();
+    };
+  }, []);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -50,29 +78,47 @@ function Navbar() {
       <header>
         <nav className={`${styles.navbar}`}>
           {/* logo */}
-          <a href="#home" className={`${styles.logo}`}>
-            <img
-              src={Logo}
-              style={{ width: "120px", height: "100px"}}
-            />
-          </a>
-          <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
-            <li onClick={removeActive}>
-              <a href="/" className={`${styles.navLink}`}>
-                Home
-              </a>
-            </li>
-            <li onClick={removeActive}>
-              <a href="#home" className={`${styles.navLink}`}>
-                About
-              </a>
-            </li>
-            <li onClick={removeActive}>
-              <a href="#home" className={`${styles.navLink}`}>
-                Login/Regiser
-              </a>
-            </li>
-          </ul>
+          <Link to="/" className={`${styles.logo}`}>
+            <img src={Logo} style={{ width: "120px", height: "100px" }} />
+          </Link>
+          {authenticatedUser === null ? (
+            <ul
+              className={`${styles.navMenu} ${isActive ? styles.active : ""}`}
+            >
+              <li onClick={removeActive}>
+                <Link to="/" className={`${styles.navLink}`}>
+                  Home
+                </Link>
+              </li>
+              <li onClick={removeActive}>
+                <Link to="/" className={`${styles.navLink}`}>
+                  About
+                </Link>
+              </li>
+              <li onClick={removeActive}>
+                <Link to="/sign-in" className={`${styles.navLink}`}>
+                  Login
+                </Link>
+              </li>
+              <li onClick={removeActive}>
+                <Link to="/register" className={`${styles.navLink}`}>
+                  Register
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <>
+              <li onClick={removeActive}>
+                <Link
+                  to="/"
+                  className={`${styles.navLink}`}
+                  onClick={userSignOut}
+                >
+                  Sign Out
+                </Link>
+              </li>
+            </>
+          )}
           <div
             className={`${styles.hamburger} ${isActive ? styles.active : ""}`}
             onClick={toggleActiveClass}

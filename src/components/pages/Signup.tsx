@@ -13,24 +13,27 @@ import { useAuthValue } from "../../database/AuthContext";
 import Form from "../Form";
 const Signup = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
 
  const handleRegister = (email:string,password:string) => {
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
   .then(({user})=>{
+    // navigate("/");
     console.log(user);
     user.getIdToken().then((token) => {
-      dispatch(
+      // dispatch(
         setUser({
           email: user.email,
           id: user.uid,
           token: token,
         })
-      );
+      // );
+      // navigate("/");
     });
-    navigate("/");
+    navigate("/sign-in");
+    console.log('You are back from registeration page')
   }).catch(()=> alert("Incorrect Data Entered!"))
  }
 

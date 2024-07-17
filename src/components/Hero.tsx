@@ -12,6 +12,8 @@ import { AspirationContext } from "./context";
 import womenInTechnology from "./data";
 function Hero() {
   const {aspiration, setAspiration} = useContext(AspirationContext);
+  // const [aspirationValue, setAspiration] = aspiration;
+
   const navigate = useNavigate();
 
   const handleChange = (event: SelectChangeEvent) => {

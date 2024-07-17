@@ -7,7 +7,7 @@ export const AspirationProvider = ({children}) => {
     const [aspiration, setAspiration] = useState("");
 
     return(
-        <AspirationContext.Provider value={{aspiration,setAspiration}}>
+        <AspirationContext.Provider value={{aspiration: [aspiration,setAspiration]}}>
             {children}
         </AspirationContext.Provider>
     )

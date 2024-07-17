@@ -6,15 +6,15 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
-import { AspirationProvider } from "./components/context";
+import { AspirationContext, AspirationProvider } from "./components/context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <Provider store={store}> */}
-    <AspirationProvider>
+    {/* <Provider store={store} context={AspirationContext}> */}
       <App />
-    </AspirationProvider>
+    {/* </Provider> */}
     {/* </Provider> */}
   </React.StrictMode>
 );
