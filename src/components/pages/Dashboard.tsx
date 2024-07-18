@@ -12,12 +12,31 @@ import {
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import styles from "../../styling/dashboard.module.css";
+import { db } from "../../database/firebaseConfig";
+import { addDoc, collection } from "firebase/firestore";
+
+
+// Import the 'firestore' module from 'firebase/app'
+
+// ...
+
+
+// ...
 
 function Dashboard(props: any) {
   const location = useLocation();
+  // var favorites = firestore.collection("favoritesCollection");
+// Access the 'collection' property on the 'firestore' object]
+const doc = async function(){
+  const docRef = await addDoc(collection(db,"favoritesCollection"),{
+    id:"",
+    name:""
+  })
+}
+
+// var favorites = await addDoc(collection(db,"favoritesCollection"),{favorite:})
   const selected = location.state.category;
-  const [liked, setLiked] = React.useState(false);
-  const [favs,setFavs] = React.useState({});
+  
   const  [list, setList] = React.useState(womenInTechnology);
   //   const selected = location.state.category;
   const engineeringItems = list.filter(
@@ -38,7 +57,7 @@ function Dashboard(props: any) {
   const entrepeneurshipItems = list.filter(
     (item) => item.category === "Entrepeneurship"
   );
-  const handleChange = (id:string) => {
+  const handleChange = async(id:string) => {
     const newList = list.map((item)=>{
         if(item.id === id){
             const updateItem = {
@@ -51,6 +70,7 @@ function Dashboard(props: any) {
     })
    console.log(id);
    setList(newList);
+   
   };
 //   console.log(selected);
 // useEffect(()=>{

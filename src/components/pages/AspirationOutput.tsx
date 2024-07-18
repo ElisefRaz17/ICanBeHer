@@ -24,7 +24,7 @@ function AspirationOutput() {
     inputRef.current?.focus(); /** used to stop rerendering when Like button is clicked */
     setLiked(true);
   }
-  console.log(category);
+  
   const ref = useRef<ShowMoreRef>(null);
   const toggleLines: ShowMoreToggleLinesFn = (e) => {
     ref.current?.toggleLines(e);
