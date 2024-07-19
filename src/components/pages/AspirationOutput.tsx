@@ -57,6 +57,25 @@ function AspirationOutput() {
   const entrepeneurshipItems = womenInTechnology.filter(
     (item) => item.category === "Entrepeneurship"
   );
+  const  [list, setList] = React.useState(womenInTechnology);
+  const handleChange = async(id:string) => {
+    const newList = list.map((item)=>{
+        if(item.id === id){
+            const updateItem = {
+                ...item,
+                liked:!item.liked
+            };
+            return updateItem;
+        }
+        console.log(`Current item: ${item.id}`);
+        return item;
+    })
+   console.log(id);
+   
+   setList(newList);
+  //  setRandomNum(Math.floor(Math.random()*(womenInTechnology.length - 0) + 0));
+   
+  };
 
   const item = engineeringItems
     .sort(() => Math.random() - Math.random())
@@ -100,6 +119,7 @@ function AspirationOutput() {
                 <p>{engineeringItems[randomNum].details}</p>
               </ShowMore>
             </div>
+            {/* <IconButton >{engineeringItems[randomNum].liked ? <FavoriteIcon sx={{color:"red"}}/> : <FavoriteBorderOutlinedIcon/>}</IconButton> */}
           </div>
           <Card className={styles.card}>
             <CardContent className={styles["card-content"]}>
@@ -115,6 +135,7 @@ function AspirationOutput() {
                 <p className={styles.title}>
                   {engineeringItems[randomNum].category}
                 </p>
+                {/* <IconButton onClick={()=>{setLiked(true)}}>{liked ? <FavoriteIcon sx={{color:"red"}}/> : <FavoriteBorderOutlinedIcon/>}</IconButton> */}
                 <p>
                   Learn more about {engineeringItems[randomNum].name}{" "}
                   <a href={engineeringItems[randomNum].website}>here</a>

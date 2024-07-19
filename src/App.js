@@ -13,7 +13,10 @@ import { AspirationContext, AspirationProvider } from "./components/context";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import Logic from "./components/Logic";
+
 function App() {
+  const [user, setUser] = useState(undefined);
+  // const {auth, onAuthStateChanged} = useAuth();
   // const context = useContext(AspirationContext);
   return (
     <Provider store={store} context={AspirationContext}>
