@@ -12,7 +12,7 @@ import {
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import styles from "../../styling/dashboard.module.css";
-import { db } from "../../database/firebaseConfig";
+import { auth, db } from "../../database/firebaseConfig";
 import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 
 // Import the 'firestore' module from 'firebase/app'
@@ -23,6 +23,12 @@ import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 
 function Dashboard(props: any) {
   const location = useLocation();
+  const [favorites, setFavorites] = React.useState<any[]>([]);
+  // var favorites = await addDoc(collection(db,"favoritesCollection"),{favorite:})
+  const selected = location.state.category;
+  const user = auth.currentUser?.uid;
+  console.log(user);
+  // const user = auth.currentUser?.uid;
   // var favorites = firestore.collection("favoritesCollection");
   // Access the 'collection' property on the 'firestore' object]
   // const doc = async function(){
@@ -40,9 +46,7 @@ function Dashboard(props: any) {
   //   //   )
   //   // }
   // }
-  const [favorites, setFavorites] = React.useState<any[]>([]);
-  // var favorites = await addDoc(collection(db,"favoritesCollection"),{favorite:})
-  const selected = location.state.category;
+
   // const addFav =(props:any)=>{
 
   // }
@@ -84,6 +88,10 @@ function Dashboard(props: any) {
       return item;
     });
     setList(newList);
+    await setDoc(
+      doc(db, `users/${user}/favoritesCollection`, id),
+      {favorites}
+    );
     // setFavorites([...newList,])
     // if (!favorites.includes(id)) setFavorites(newList);
     // console.log(id);

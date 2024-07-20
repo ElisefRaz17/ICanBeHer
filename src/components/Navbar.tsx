@@ -113,6 +113,7 @@ function Navbar() {
                   to="/"
                   className={`${styles.navLink}`}
                   onClick={userSignOut}
+                  state={{authenticatedUser}}
                 >
                   Sign Out
                 </Link>
