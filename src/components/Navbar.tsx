@@ -112,8 +112,8 @@ function Navbar() {
           ) : (
             <ul style={{ display: "flex", flexDirection: "row", gap: "2rem" }}>
               <li onClick={removeActive}>
-                <Link to="/profile" className={`${styles.navLink}`}>
-                  Profile
+                <Link to="/favorites" className={`${styles.navLink}`}>
+                  Favorites
                 </Link>
               </li>
               <li onClick={removeActive}>

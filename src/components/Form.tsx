@@ -1,10 +1,15 @@
-import React, {useState} from 'react'
-import styles from "../styling/signupform.module.css"
+import React, { useState } from "react";
+import styles from "../styling/signupform.module.css";
 type FormProps = {
-  handleRegister: (email:string,password:string) => void;
+  handleRegister: (
+    email: string,
+    password: string,
+    firstName: string,
+    lastName: string
+  ) => void;
 };
 
-const Form = ({handleRegister}: FormProps) =>{
+const Form = ({ handleRegister }: FormProps) => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -75,7 +80,14 @@ const Form = ({handleRegister}: FormProps) =>{
                 type="submit"
                 className="btn btn-primary"
                 style={{ backgroundColor: "#9CB2FF" }}
-                onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleRegister(email, password)}
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                  handleRegister(
+                    email,
+                    password,
+                    firstName,
+                    lastName,
+                  )
+                }
               >
                 Create Account
               </button>
@@ -84,7 +96,7 @@ const Form = ({handleRegister}: FormProps) =>{
               Already registered <a href="/sign-in">sign in?</a>
             </p>
           </div>
-          <div className={styles.column}>
+          {/* <div className={styles.column}>
             <div className="mb-3">
               <label>Github(optional)</label>
               <input
@@ -93,7 +105,7 @@ const Form = ({handleRegister}: FormProps) =>{
                 placeholder="Github Link"
                 name="Github"
                 value={github}
-                onChange={(e)=>setGitHub(e.target.value)}
+                onChange={(e) => setGitHub(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -104,7 +116,7 @@ const Form = ({handleRegister}: FormProps) =>{
                 placeholder="LinkedIn Link"
                 name="LinkedIn"
                 value={linkedin}
-                onChange={(e)=>setLinkedin(e.target.value)}
+                onChange={(e) => setLinkedin(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -115,7 +127,7 @@ const Form = ({handleRegister}: FormProps) =>{
                 placeholder="Ex: University of Southern California"
                 name="Education"
                 value={education}
-                onChange={(e)=>setEducation(e.target.value)}
+                onChange={(e) => setEducation(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -126,7 +138,7 @@ const Form = ({handleRegister}: FormProps) =>{
                 placeholder="Ex: Software Engineer at Microsoft"
                 name="Job"
                 value={job}
-                onChange={(e)=>setJob(e.target.value)}
+                onChange={(e) => setJob(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -136,14 +148,14 @@ const Form = ({handleRegister}: FormProps) =>{
                 placeholder="Interests"
                 name="Interests"
                 value={interests}
-                onChange={(e)=>setInterest(e.target.value)}
+                onChange={(e) => setInterest(e.target.value)}
               />
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

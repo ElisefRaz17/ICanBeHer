@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import womenInTechnology from "../data";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Button,
   Card,
@@ -24,6 +24,7 @@ import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 function Dashboard(props: any) {
   const location = useLocation();
   const [favorites, setFavorites] = React.useState<any[]>([]);
+  const history = useNavigate();
   // var favorites = await addDoc(collection(db,"favoritesCollection"),{favorite:})
   const selected = location.state.category;
   const user = auth.currentUser?.uid;
@@ -92,6 +93,7 @@ function Dashboard(props: any) {
       doc(db, `users/${user}/favoritesCollection`, id),
       {favorites}
     );
+    
     // setFavorites([...newList,])
     // if (!favorites.includes(id)) setFavorites(newList);
     // console.log(id);
@@ -154,3 +156,4 @@ function Dashboard(props: any) {
 }
 
 export default Dashboard;
+

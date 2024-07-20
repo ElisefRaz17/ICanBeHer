@@ -13,7 +13,8 @@ import { AspirationContext, AspirationProvider } from "./components/context";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import Logic from "./components/Logic";
-import Profile from "./components/pages/Profile";
+import Profile from "./components/pages/Favorites";
+import Favorites from "./components/pages/Favorites";
 
 function App() {
   const [user, setUser] = useState(undefined);
@@ -29,7 +30,7 @@ function App() {
           <Route path="/register" element={<Signup />} />
           <Route path="/sign-in" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/favorites" element={<Favorites/>}/>
         </Routes>
         <Footer />
       </Router>

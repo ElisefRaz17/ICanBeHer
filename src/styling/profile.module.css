@@ -1,14 +1,12 @@
-.profileContainer{
-    display:flex;
-    width:547px;
-    height:607px;
-    background-color: white;
+.container{
+    display: flex;
+    height: 607px;
     border-radius: 8px;
-    margin-left: 4rem;
-    padding:20px;
+    padding: 20px;
     flex-direction: column;
     flex-wrap: wrap;
-    /* justify-content: center; */
+    margin-right: auto;
+    margin-left: auto;
 }
 .edit-container{
     display: flex;
@@ -47,10 +45,5 @@
     display:block;
     margin: 20px;
     padding : 5px;
-    gap: 2rem;
-}
-.container{
-    display: flex;
-    flex-direction: row;
     gap: 2rem;
 }
