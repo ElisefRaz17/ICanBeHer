@@ -125,7 +125,7 @@ function Dashboard(props: any) {
                   <p id={item.id}>
                     {item.name}
 
-                    <IconButton
+                    <Button
                       onClick={() => handleChange(item.id)}
                       type="button"
                     >
@@ -134,7 +134,7 @@ function Dashboard(props: any) {
                       ) : (
                         <FavoriteBorderOutlinedIcon />
                       )}
-                    </IconButton>
+                    </Button>
                   </p>
                   <img
                     src={item.image_path}

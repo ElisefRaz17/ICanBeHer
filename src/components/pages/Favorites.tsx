@@ -15,33 +15,44 @@ import {
   query,
   QuerySnapshot,
 } from "firebase/firestore";
+import { useGlobalContext } from "../../database/UserContext";
 
 function Favorites() {
   const user = auth.currentUser;
+  const {userId} = useGlobalContext();
+  const location = useLocation();
+  
   const id = user?.uid;
-
+ 
+  
+  // .((querySnapshot) => {
+  //   console.log(querySnapshot.docs.map(d => ({id: d.id, ...d.data()})))
+  // })
   console.log(user);
   console.log(id);
+  console.log(doc(db, "users","favoritesCollection"));
   const [userFavorites, setUserFavorites] = useState({});
   const [selectedFav, setSelectedFav] = useState({});
   const [error, setError] = useState("");
   useEffect(() => {
-    const q = collection(db, "users");
-    onSnapshot(query(collection(db, "users")), (snapshot: QuerySnapshot) => {
-      snapshot.docs.map((doc) => {
-        onSnapshot(
-          collection(doc.ref, "favoritesCollection"),
-          (snapshot: QuerySnapshot) => {
-            setUserFavorites(
-              snapshot.docs.map((doc) => ({
-                id: doc.id,
-                item: doc.data(),
-              }))
-            );
-          }
-        );
-      });
-    });
+    onSnapshot(query(collectionGroup(db,"favoritesCollection")),(snapshot:QuerySnapshot)=>{
+      console.log(snapshot.docs.map(d => ({id: d.id, ...d.data()})))
+    })
+    // onSnapshot(query(collection(db, "users")), (snapshot: QuerySnapshot) => {
+    //   snapshot.docs.map((doc) => {
+    //     onSnapshot(
+    //       collection(db, "favoritesCollection"),
+    //       (snapshot: QuerySnapshot) => {
+    //         setUserFavorites(
+    //           snapshot.docs.map((doc) => ({
+    //             id: doc.id,
+    //             item: doc.data(),
+    //           }))
+    //         );
+    //       }
+    //     );
+    //   });
+    // });
   }, []);
   console.log(userFavorites);
   // useEffect(() => {
