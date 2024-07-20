@@ -1,0 +1,56 @@
+.profileContainer{
+    display:flex;
+    width:547px;
+    height:607px;
+    background-color: white;
+    border-radius: 8px;
+    margin-left: 4rem;
+    padding:20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+}
+.edit-container{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    padding: 20px;
+}
+.bio{
+    display: flex;
+    flex-direction:row;
+}
+.subheading{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+}
+.profilePic{
+    margin-left: auto;
+    margin-right: auto;
+}
+.deleteBtn{
+    border-radius: 8px;
+    border-color: red;
+    background-color: white;
+    border-width: 2px;
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    font-family: 'Barlow', sans-serif;
+}
+.deleteContainer{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+}
+.favoritesContainer{
+    display:block;
+    margin: 20px;
+    padding : 5px;
+    gap: 2rem;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}

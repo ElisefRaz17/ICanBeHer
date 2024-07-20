@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Navigate, useNavigate} from "react-router-dom";
 import styles from "../styling/navbar.module.css";
 import Logo from "../assets/Logo.png";
 import { Avatar } from "@mui/material";
@@ -20,6 +21,7 @@ import { onAuthStateChanged, signOut, User } from "firebase/auth";
 
 function Navbar() {
   const [isActive, setIsActive] = React.useState(false);
+  const jsonStringify = require('safe-json-stringify');
   const [authenticatedUser, setAuthenticatedUser] = useState<User | null>(null);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -73,6 +75,7 @@ function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const history = useNavigate();
   return (
     <div className="App">
       <header>
@@ -107,18 +110,35 @@ function Navbar() {
               </li>
             </ul>
           ) : (
-            <>
+            <ul style={{ display: "flex", flexDirection: "row", gap: "2rem" }}>
+              <li onClick={removeActive}>
+                <Link to="/profile" className={`${styles.navLink}`}>
+                  Profile
+                </Link>
+              </li>
               <li onClick={removeActive}>
                 <Link
                   to="/"
                   className={`${styles.navLink}`}
                   onClick={userSignOut}
-                  state={{authenticatedUser}}
                 >
-                  Sign Out
+                  <LogoutIcon sx={{ color: "hotpink" }} />
                 </Link>
               </li>
-            </>
+              <li>
+                <Link
+                  to="/dashboard"
+                  className={`${styles.navLink}`}
+                  state={{ authenticatedUser: jsonStringify(authenticatedUser) }}
+                  onClick={() => {
+                    history("/dashboard");
+                  }}
+                >
+                  Dashboard
+                </Link>
+              </li>
+            </ul>
+            
           )}
           <div
             className={`${styles.hamburger} ${isActive ? styles.active : ""}`}
