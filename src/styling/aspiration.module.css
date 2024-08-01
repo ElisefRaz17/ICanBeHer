@@ -28,7 +28,7 @@
      background-color: #9CB2FF;
      color:white;
      font-family:"Barlow";
-     &:hover{
+     .moreBtn:hover{
         background-color: blueviolet;
      }
 }
