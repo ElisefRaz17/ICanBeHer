@@ -1,1 +1,5 @@
-{"headers":{"x-next-cache-tags":"/aspiration/page"}}
+{
+  "headers": {
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/aspiration/layout,_N_T_/aspiration/page,_N_T_/aspiration"
+  }
+}

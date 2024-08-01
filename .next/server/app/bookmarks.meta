@@ -1,1 +1,5 @@
-{"headers":{"x-next-cache-tags":"/bookmarks/page"}}
+{
+  "headers": {
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/bookmarks/layout,_N_T_/bookmarks/page,_N_T_/bookmarks"
+  }
+}
