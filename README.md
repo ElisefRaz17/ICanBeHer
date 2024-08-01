@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-## Available Scripts
+<h2 align="center">MOVIE-BOOKMARK</h2>
+  <p align="center">
+    A web app built using Next 13.4 for bookmarking movies, using redux-toolkit and firebase.
+    <br/>
+    Link:
+    <a href="https://dev.to/thankgod/crafting-your-personal-movie-bookmark-application-using-next-13413-redux-toolkit-firebase-and-typescript-2dgj" targer="_blank">
+      Be inspired by different women in technology by using I Can Be Her app, created with Next 13.4.13, Redux Toolkit, Firebase, and TypeScript
+      Setup was based on project created by thankgod, project: Personal Movie Bookmark application
+    </a>
+    <br />
+  </p>
+</div>
 
-In the project directory, you can run:
 
-### `npm start`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#tech-stack">Tech Stack</a></li>
+    <li><a href="#development">Development</a></li>
+  </ol>
+</details>
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<div align="center">
+  <a href="https://github.com/Tk-brainCodes/Movie-Bookmark">
+       <img src="./public/ICanBeHerFavoritesPage.png" alt="screenshot">
+          <img src="./public/ICanBeHerHomescreen.png" alt="screenshot">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  </a>
+</div>
+<br/>
 
-### `npm test`
+<!-- TECH STACK -->
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+- **Next 13.4** with Typescript
+- Styled using **TailwindCSS**
+- Authentication, database using **Firebase**
+- State management using **Redux-Toolkit**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- DEVELOPMENT -->
 
-### `npm run eject`
+## Development
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository 
+```sh
+git clone https://github.com/Tk-brainCodes/Movie-Bookmark.git
+```
 
-## Learn More
+2. cd into the `bookmarks` directory
+```sh
+cd bookmarks/
+```
+3. Install dependencies using npm
+```sh
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Copy your `firebase config` into `.env-local` and update the variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Start the development server
 
-### Code Splitting
+```sh
+npm run dev
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
